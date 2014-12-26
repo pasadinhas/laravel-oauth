@@ -1,0 +1,4 @@
+suites:
+  pasadinhas_suite:
+    namespace: Pasadinhas\LaravelOAuth
+    spec_prefix: tests
