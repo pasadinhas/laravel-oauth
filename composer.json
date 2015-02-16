@@ -1,7 +1,7 @@
 {
     "name": "pasadinhas/laravel-oauth",
-    "description": "A wrapper for handling OAuth requests for Laravel Applications",
-    "keywords": ["OAuth", "pasadinhas", "laravel", "php", "laravel5"],
+    "description": "A wrapper for handling OAuth requests for Laravel 4/5 Applications",
+    "keywords": ["OAuth", "pasadinhas", "laravel", "php", "laravel5", "laravel4"],
     "homepage": "https://github.com/pasadinhas/laravel-oauth",
     "license": "MIT",
     "authors": [
