@@ -32,6 +32,10 @@ class LaravelOAuthServiceProvider extends ServiceProvider {
     public function boot()
     {
         $this->package('pasadinhas/laravel-oauth', 'oauth');
+
+        $this->publishes([
+            __DIR__.'/../../config/oauth.php' => config_path('oauth.php')
+        ]);
     }
 
 	/**

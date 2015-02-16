@@ -54,7 +54,7 @@ class Factory {
      */
     private function assertProviderHasConfiguration($name)
     {
-        if ( ! $this->config->has("oauth::providers.{$name}")) {
+        if ( ! $this->config->has("oauth.providers.{$name}")) {
             $message = "Provider {$name} has no configuration set.";
             throw new ProviderConfigurationDoesNotExistException($message);
         }
@@ -68,9 +68,9 @@ class Factory {
     private function makeCredentials($name)
     {
         return new Credentials(
-            $this->config->get("oauth::providers.{$name}.consumer_key"),
-            $this->config->get("oauth::providers.{$name}.consumer_secret"),
-            $this->config->get("oauth::providers.{$name}.callback_url")
+            $this->config->get("oauth.providers.{$name}.consumer_key"),
+            $this->config->get("oauth.providers.{$name}.consumer_secret"),
+            $this->config->get("oauth.providers.{$name}.callback_url")
         );
     }
 
@@ -89,8 +89,8 @@ class Factory {
      */
     private function registerProvider($name)
     {
-        if ($this->config->has("oauth::providers.$name.class")) {
-            $class = $this->config->get("oauth::providers.$name.class");
+        if ($this->config->has("oauth.providers.$name.class")) {
+            $class = $this->config->get("oauth.providers.$name.class");
             $this->factory->registerService($name, $class);
         }
     }
@@ -115,9 +115,9 @@ class Factory {
      */
     public function decorateProvider(ServiceInterface $provider, $name)
     {
-        if ($this->config->has("oauth::providers.$name.decorators"))
+        if ($this->config->has("oauth.providers.$name.decorators"))
         {
-            $decorators = $this->config->get("oauth::providers.$name.decorators");
+            $decorators = $this->config->get("oauth.providers.$name.decorators");
             foreach ($decorators as $decorator)
             {
                 $provider = $this->decorateProviderWith($provider, $decorator);

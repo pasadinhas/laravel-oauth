@@ -41,12 +41,12 @@ class FactorySpec extends ObjectBehavior
             Argument::type(self::INTERFACE_STORAGE)
         )->shouldBeCalledTimes(1)->willReturn(new Foo);
 
-        $config->has('oauth::providers.Foo')->willReturn(true);
-        $config->has('oauth::providers.Foo.class')->willReturn(false);
-        $config->has('oauth::providers.Foo.decorators')->willReturn(false);
-        $config->get('oauth::providers.Foo.consumer_key')->willReturn('foo');
-        $config->get('oauth::providers.Foo.consumer_secret')->willReturn('bar');
-        $config->get('oauth::providers.Foo.callback_url')->willReturn('http://baz.com/login');
+        $config->has('oauth.providers.Foo')->willReturn(true);
+        $config->has('oauth.providers.Foo.class')->willReturn(false);
+        $config->has('oauth.providers.Foo.decorators')->willReturn(false);
+        $config->get('oauth.providers.Foo.consumer_key')->willReturn('foo');
+        $config->get('oauth.providers.Foo.consumer_secret')->willReturn('bar');
+        $config->get('oauth.providers.Foo.callback_url')->willReturn('http://baz.com/login');
 
         $this->make('Foo');
     }
@@ -56,13 +56,13 @@ class FactorySpec extends ObjectBehavior
         $serviceFactory->registerService('Bar', 'Namespace\Of\Bar')->shouldBeCalledTimes(1);
         $serviceFactory->createService('Bar', Argument::cetera())->shouldBeCalled()->willReturn(new Foo);
 
-        $config->has('oauth::providers.Bar')->willReturn(true);
-        $config->has('oauth::providers.Bar.decorators')->willReturn(false);
-        $config->has('oauth::providers.Bar.class')->willReturn(true);
-        $config->get('oauth::providers.Bar.class')->willReturn('Namespace\Of\Bar');
-        $config->get('oauth::providers.Bar.consumer_key')->willReturn('foo');
-        $config->get('oauth::providers.Bar.consumer_secret')->willReturn('bar');
-        $config->get('oauth::providers.Bar.callback_url')->willReturn('http://baz.com/login');
+        $config->has('oauth.providers.Bar')->willReturn(true);
+        $config->has('oauth.providers.Bar.decorators')->willReturn(false);
+        $config->has('oauth.providers.Bar.class')->willReturn(true);
+        $config->get('oauth.providers.Bar.class')->willReturn('Namespace\Of\Bar');
+        $config->get('oauth.providers.Bar.consumer_key')->willReturn('foo');
+        $config->get('oauth.providers.Bar.consumer_secret')->willReturn('bar');
+        $config->get('oauth.providers.Bar.callback_url')->willReturn('http://baz.com/login');
 
         $this->make('Bar');
     }
@@ -75,15 +75,15 @@ class FactorySpec extends ObjectBehavior
             Argument::type(self::INTERFACE_STORAGE)
         )->shouldBeCalledTimes(1)->willReturn(new Foo);
 
-        $config->has('oauth::providers.Foo')->willReturn(true);
-        $config->has('oauth::providers.Foo.class')->willReturn(false);
-        $config->has('oauth::providers.Foo.decorators')->willReturn(true);
-        $config->get('oauth::providers.Foo.decorators')->willReturn([
+        $config->has('oauth.providers.Foo')->willReturn(true);
+        $config->has('oauth.providers.Foo.class')->willReturn(false);
+        $config->has('oauth.providers.Foo.decorators')->willReturn(true);
+        $config->get('oauth.providers.Foo.decorators')->willReturn([
             'tests\Pasadinhas\LaravelOAuth\Decorator1',
         ]);
-        $config->get('oauth::providers.Foo.consumer_key')->willReturn('foo');
-        $config->get('oauth::providers.Foo.consumer_secret')->willReturn('bar');
-        $config->get('oauth::providers.Foo.callback_url')->willReturn('http://baz.com/login');
+        $config->get('oauth.providers.Foo.consumer_key')->willReturn('foo');
+        $config->get('oauth.providers.Foo.consumer_secret')->willReturn('bar');
+        $config->get('oauth.providers.Foo.callback_url')->willReturn('http://baz.com/login');
 
         $foo = $this->make('Foo');
 
@@ -99,16 +99,16 @@ class FactorySpec extends ObjectBehavior
             Argument::type(self::INTERFACE_STORAGE)
         )->shouldBeCalledTimes(1)->willReturn(new Foo);
 
-        $config->has('oauth::providers.Foo')->willReturn(true);
-        $config->has('oauth::providers.Foo.class')->willReturn(false);
-        $config->has('oauth::providers.Foo.decorators')->willReturn(true);
-        $config->get('oauth::providers.Foo.decorators')->willReturn([
+        $config->has('oauth.providers.Foo')->willReturn(true);
+        $config->has('oauth.providers.Foo.class')->willReturn(false);
+        $config->has('oauth.providers.Foo.decorators')->willReturn(true);
+        $config->get('oauth.providers.Foo.decorators')->willReturn([
             'tests\Pasadinhas\LaravelOAuth\Decorator1',
             'tests\Pasadinhas\LaravelOAuth\Decorator2',
         ]);
-        $config->get('oauth::providers.Foo.consumer_key')->willReturn('foo');
-        $config->get('oauth::providers.Foo.consumer_secret')->willReturn('bar');
-        $config->get('oauth::providers.Foo.callback_url')->willReturn('http://baz.com/login');
+        $config->get('oauth.providers.Foo.consumer_key')->willReturn('foo');
+        $config->get('oauth.providers.Foo.consumer_secret')->willReturn('bar');
+        $config->get('oauth.providers.Foo.callback_url')->willReturn('http://baz.com/login');
 
         $foo = $this->make('Foo');
 
